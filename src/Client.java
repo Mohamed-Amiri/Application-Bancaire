@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Client {
 
     private  int Id;
@@ -5,6 +8,7 @@ public class Client {
     private String lastname;
     private String email ;
     private int phone;
+    private ArrayList<Compte> comptes = new ArrayList<>();
 
     public Client(int Id, String firstname, String lastname, String email , int phone){
         this.Id = Id;
@@ -13,7 +17,20 @@ public class Client {
         this.email = email;
         this.phone = phone;
 
+    }
 
+    public Client() {
+
+    }
+
+    @Override
+    public String toString() {
+        return "Client :" +
+                "Id=" + Id +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", email='" + email + '\'' +
+                ", phone=" + phone ;
     }
 
     public int getId() {
@@ -30,6 +47,9 @@ public class Client {
 
     public void setFirstname(String firstname) {
         this.firstname = firstname;
+    }
+    public void setComptes ( Compte compte ) {
+        this.comptes.add( compte );
     }
 
     public String getLastname() {
@@ -55,5 +75,30 @@ public class Client {
     public void setPhone(int phone) {
         this.phone = phone;
     }
+
+
+    public Client AddClient(Scanner scanner){
+        System.out.println("enter ID : ");
+        int id = scanner.nextInt();
+        System.out.println("enter firstname : ");
+        String firstname = scanner.nextLine();
+        scanner.nextLine();
+        System.out.println("enter lastname : ");
+        String lastname = scanner.nextLine();
+
+        System.out.println("enter email : ");
+        String email = scanner.nextLine();
+        System.out.println("enter phone number : ");
+        int phone = scanner.nextInt();
+
+        return new Client(id,firstname, lastname, email, phone);
+    }
+
+public  void DisplayClient (ArrayList<Client> client){
+
+        for(int i = 0; i<client.size();i++){
+            System.out.println(client.get(i).toString());
+        }
+}
 
 }

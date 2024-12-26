@@ -22,10 +22,10 @@ public class Main {
 
             switch (choice) {
                case 1:
-                    //manageClients(scanner);
+                    manageClients(scanner);
                    break;
                 case 2:
-                   //manageAccounts(scanner);
+                   manageAccounts(scanner);
                     break;
                case 3:
                     //manageOperations(scanner);
@@ -41,6 +41,7 @@ public class Main {
         scanner.close();
     }
     public static void manageClients(Scanner scanner) {
+        Client client = new Client();
         boolean back = false;
         while (!back){
 
@@ -54,10 +55,10 @@ public class Main {
 
         switch (choice){
             case 1 :
-               // AddClient();
+                clientArrayList.add(client.AddClient(scanner));
                 break;
             case 2 :
-                //DisplayClient;
+                client.DisplayClient(clientArrayList);
             break;
             case 3 :
                 back = true;
@@ -83,10 +84,23 @@ public class Main {
 
             switch (choice) {
                 case 1:
-//                    CreateAccount();
+                    System.out.println(" 1- account courant ");
+                    System.out.println(" 2- account epagne  ");
+                    System.out.println("entre your choice : ");
+                    int choix= scanner.nextInt();
+                    if (choix==1){
+                            CompteCourant courant = new CompteCourant();
+                        ComptArraylist.add(courant.createAccount());
+
+                    }else if(choix==2){
+                        CompteEpargne epargne = new CompteEpargne();
+                        ComptArraylist.add(epargne.createAccount());
+
+                    }else
+                        System.out.println("Invalid choice !!");
                     break;
                 case 2:
-//                    DisplayAccountInformation();
+//                   Compte.DisplayAccountInformation();
                     break;
                 case 3:
                     back = true;

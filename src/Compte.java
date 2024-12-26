@@ -1,10 +1,21 @@
-public class Compte {
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public abstract class Compte {
     private int Nrcompte ;
-    private String solde;
+    private double solde;
     private  Client client;
 
 
-    public Compte (int Nrcompt, String solde, Client client){
+    public Compte (int Nrcompt, double solde, Client client){
+        this.Nrcompte = Nrcompte ;
+        this.solde = solde;
+        this.client = client;
+
+
+    }
+
+    public Compte() {
 
     }
 
@@ -16,11 +27,11 @@ public class Compte {
         Nrcompte = nrcompte;
     }
 
-    public String getSolde() {
+    public double getSolde() {
         return solde;
     }
 
-    public void setSolde(String solde) {
+    public void setSolde(double solde) {
         this.solde = solde;
     }
 
@@ -39,4 +50,11 @@ public class Compte {
                 ", solde='" + solde + '\'' +
                 ", client= " + client ;
     }
+    public  void DisplayAccountInformation (ArrayList<Compte> comptes){
+
+        for(int i = 0; i<comptes.size();i++){
+            System.out.println(comptes.get(i).toString());
+        }
+    }
+
 }

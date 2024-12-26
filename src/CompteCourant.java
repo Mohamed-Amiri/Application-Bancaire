@@ -1,9 +1,17 @@
-public class CompteCourant extends Compte {
-    private String fraisBancaires;
+import java.util.Scanner;
 
-    public CompteCourant(int Nrcompt, String solde, Client client) {
+public class CompteCourant extends Compte {
+    private double fraisBancaires;
+
+    public CompteCourant(int Nrcompt, double solde, Client client, double fraisBancaires) {
         super(Nrcompt, solde, client);
         this.fraisBancaires = fraisBancaires;
+    }
+
+    Scanner scanner = new Scanner(System.in);
+
+    public CompteCourant() {
+        super();
     }
 
     @Override
@@ -17,12 +25,12 @@ public class CompteCourant extends Compte {
     }
 
     @Override
-    public String getSolde() {
+    public double getSolde() {
         return super.getSolde();
     }
 
     @Override
-    public void setSolde(String solde) {
+    public void setSolde(double solde) {
         super.setSolde(solde);
     }
 
@@ -37,11 +45,11 @@ public class CompteCourant extends Compte {
     }
 
 
-    public String getFraisBancaires() {
+    public double getFraisBancaires() {
         return fraisBancaires;
     }
 
-    public void setFraisBancaires(String fraisBancaires) {
+    public void setFraisBancaires(double fraisBancaires) {
         this.fraisBancaires = fraisBancaires;
     }
 
@@ -49,5 +57,28 @@ public class CompteCourant extends Compte {
     public String toString() {
         return "CompteCourant " + super.toString() +
                 " fraisBancaires='" + fraisBancaires + '\'';
+    }
+
+
+    public CompteCourant createAccount() {
+        System.out.println("enter the number of compte :");
+        int Nrcompte = scanner.nextInt();
+        System.out.println("enter solde : ");
+        double solde = scanner.nextDouble();
+        System.out.println("enter a client id");
+        // find client by id
+        int clientId = scanner.nextInt();
+        scanner.nextLine();
+
+        Client foundClient = null;
+        for ( Client client : Main.clientArrayList ) {
+            if ( client.getId() == clientId ) {
+                foundClient = client;
+                break;
+            }
+        }
+
+         return new CompteCourant(Nrcompte, solde, foundClient, 20);
+
     }
 }
