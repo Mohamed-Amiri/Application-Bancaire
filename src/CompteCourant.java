@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CompteCourant extends Compte {
@@ -78,7 +79,16 @@ public class CompteCourant extends Compte {
             }
         }
 
-         return new CompteCourant(Nrcompte, solde, foundClient, 20);
+        if(foundClient != null){
+            CompteCourant newAccount = new CompteCourant(Nrcompte, solde, foundClient, 20);
+            return newAccount;
+        }else {
+            System.out.println("client not found");
+            return null;
+        }
+
+
 
     }
+
 }

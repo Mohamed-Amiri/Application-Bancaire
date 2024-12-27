@@ -80,9 +80,9 @@ public class Client {
     public Client AddClient(Scanner scanner){
         System.out.println("enter ID : ");
         int id = scanner.nextInt();
+        scanner.nextLine(); // Consume the newline character
         System.out.println("enter firstname : ");
         String firstname = scanner.nextLine();
-        scanner.nextLine();
         System.out.println("enter lastname : ");
         String lastname = scanner.nextLine();
 
@@ -90,7 +90,7 @@ public class Client {
         String email = scanner.nextLine();
         System.out.println("enter phone number : ");
         int phone = scanner.nextInt();
-
+        scanner.nextLine();
         return new Client(id,firstname, lastname, email, phone);
     }
 
@@ -100,5 +100,19 @@ public  void DisplayClient (ArrayList<Client> client){
             System.out.println(client.get(i).toString());
         }
 }
+    public void methodregex (String input,String regex){
+        while (true) {
+            Scanner scanner = new Scanner(System.in);
+            input = scanner.nextLine();
 
+            if (input.matches(regex)) {
+                break;
+            }
+            else {
+                System.out.println("input invalid !!!!!! ");
+            }
+
+        }
+
+    }
 }

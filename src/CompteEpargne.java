@@ -73,8 +73,14 @@ public class CompteEpargne extends  Compte{
                 break;
             }
         }
+        if(foundClient != null){
+            CompteEpargne newAccount = new CompteEpargne(Nrcompte, solde, foundClient, 2);
+            return newAccount;
+        }else {
+            System.out.println("client not found");
+            return null;
+        }
 
-        return new CompteEpargne(Nrcompte, solde, foundClient,2);
 
     }
 

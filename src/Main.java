@@ -96,11 +96,12 @@ public class Main {
                         CompteEpargne epargne = new CompteEpargne();
                         ComptArraylist.add(epargne.createAccount());
 
-                    }else
+                    }else{
                         System.out.println("Invalid choice !!");
+                    }
                     break;
                 case 2:
-//                   Compte.DisplayAccountInformation();
+                    Compte.DisplayAccountInformation(ComptArraylist);
                     break;
                 case 3:
                     back = true;
